@@ -5,8 +5,8 @@
     - never is used in catching and throwing error
 
 ## Type casting
-
-    ```typescript
+- Casting
+   	 ```typescript	
         const str=<any>"value"; or
-        const str="value" as any;
+       	const str="value" as any;
     ```
