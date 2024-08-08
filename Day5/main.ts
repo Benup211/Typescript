@@ -1,38 +1,26 @@
-class User{
-    private _age?:number;
-    static userCount=0;
-    static userIncrement(){
-        User.userCount++;
-    }
-    static{
-        console.log("Static is initialized");
-    }
-    constructor(protected name:string,protected email?:string){
-        console.log("User Constructor");
-    }
-    public set age(value:number){
-        this._age=value;
-    }
-    public get age(){
-        return this._age||0;
-    }
-    public getName(){
-        return `Name is ${this.name}`;
-    }
+enum AutoMobileType{
+    CAR="car",
+    BIKE="motorbike",
+    TRUCK="truck"
 }
-class Admin extends User{
-    constructor(name:string,private isAdmin:boolean,email?:string){
-        super(name,email);
-        console.log("Admin Constructor");
-    }
-    public getName(): string {
-        return `Name is ${this.name} from admin`;
-    }
-} 
-
-const adminUser=new Admin("Benup",true,"Benup211@gmail.com");
-User.userIncrement();
-adminUser.age=22;
-console.log(adminUser.age);
-console.log(adminUser.getName());
-console.log(User.userCount);
+enum AutoMobileBrand{
+    BMW="bmw",
+    PAGINI="pagini",
+    TOYOTA="toyota"
+}
+enum AutoMobileColor{
+    RED="red",
+    GREEN="green",
+    PURPLE="purple"
+}
+interface AutoMobile<Type,Brand,Color>{
+    type:Type,
+    brand:Brand,
+    color:Color[],
+    description:string
+}
+class Car implements AutoMobile<AutoMobileType,AutoMobileBrand,AutoMobileColor>{
+    constructor(public type:AutoMobileType,public brand:AutoMobileBrand,public color:AutoMobileColor[],public description:string){}
+}
+const car1=new Car(AutoMobileType.CAR,AutoMobileBrand.BMW,[AutoMobileColor.GREEN,AutoMobileColor.PURPLE],"This is a BMW");
+console.log(car1);
