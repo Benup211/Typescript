@@ -4,16 +4,16 @@ export const customTheme:ThemeOptions=createTheme({
     palette:{
         mode:'dark',
         primary: {
-            light: '#cfd8dc',
-            main: '#607d8b',
-            dark: '#455a64', 
+            light: 'rgba(168,85,247,.80)',
+            main: 'rgba(168,85,247,.65)',
+            dark: 'rgba(168,85,247,.28)', 
           },
           secondary: {
-            main: '#757575',
+            main: '#03a9f4',
           },
           background: {
-            paper: '#212121',
-            default: '#212121',
+            paper: '#151515',
+            default: 'rgba(0,0,0,.96)',
           },
     }
 });
