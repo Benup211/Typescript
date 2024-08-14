@@ -1,23 +1,62 @@
 import { FC, ReactElement } from "react";
-import { Box, Typography,Stack } from "@mui/material";
+import { Box, Typography, Stack } from "@mui/material";
 import { TaskTitleField } from "./_taskTitleField";
 import { TaskDescriptionField } from "./_taskDescriptionField";
 import { TaskDateField } from "./_taskDateField";
+import {TaskSelectField} from "./_taskSelectField";
+import { Priority } from './enums/Priority';
+import { Status } from './enums/Status';
 export const CreateTaskForm: FC = (): ReactElement => {
   return (
     <Box
-    display="flex"
-    flexDirection="column"
-    alignItems="flex-start"
-    width="100%"
-    px={4}
-    my={6}
+      display="flex"
+      flexDirection="column"
+      alignItems="flex-start"
+      width="100%"
+      px={4}
+      my={6}
     >
-        <Typography mb={2} component="h2" variant="h6">Create A Task</Typography>
-        <Stack sx={{ width: '100%' }} spacing={2}>
-        <TaskTitleField disabled={false}/>
+      <Typography mb={2} component="h2" variant="h6">
+        Create A Task
+      </Typography>
+      <Stack sx={{ width: "100%" }} spacing={2}>
+        <TaskTitleField disabled={false} />
         <TaskDescriptionField disabled={true} />
-        <TaskDateField/>
+        <TaskDateField />
+        <Stack sx={{ width: "100%" }} direction="row" spacing={2}>
+        <TaskSelectField
+            label="Status"
+            name="status"
+            items={[
+              {
+                value: Status.todo,
+                label: Status.todo.toUpperCase(),
+              },
+              {
+                value: Status.inProgress,
+                label: Status.inProgress.toUpperCase(),
+              },
+            ]}
+          />
+          <TaskSelectField
+            label="Priority"
+            name="priority"
+            items={[
+              {
+                value: Priority.low,
+                label: Priority.low,
+              },
+              {
+                value: Priority.normal,
+                label: Priority.normal,
+              },
+              {
+                value: Priority.high,
+                label: Priority.high,
+              },
+            ]}
+          />
+        </Stack>
       </Stack>
     </Box>
   );
