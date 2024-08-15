@@ -1,0 +1,10 @@
+POST http://localhost:3000/tasks
+Content-Type: application/json
+{
+    "id": "d77096af-2a0f-441b-9964-fb5d6bed4938",
+    "title": "Starting project proposal",
+    "description": "Write up the project proposal and submit to the client",
+    "date": "2023-06-01",
+    "priority": "high",
+    "status": "todo"
+  }
