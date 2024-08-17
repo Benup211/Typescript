@@ -30,6 +30,5 @@ export async function sendApiRequest<T>(
         const message=`An error has occured:${response.status}`;
         throw new Error(message);
     }
-    console.log(response.json());
     return response.json() as Promise<T>;
 }
