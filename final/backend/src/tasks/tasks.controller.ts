@@ -15,7 +15,7 @@ class TaskController {
                 },
             });
             allTasks = instanceToPlain(allTasks) as Task[];
-            return res.status(200).json({ allTasks });
+            return res.status(200).json(allTasks);
         } catch (_errors) {
             return res.status(500).json("Internal server error");
         }
