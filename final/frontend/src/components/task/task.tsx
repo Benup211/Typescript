@@ -15,7 +15,8 @@ export const Task: FC<ITask> = (props): ReactElement => {
     onStatusChange=(e)=>console.log(e),
     onClick=(e)=>console.log(e),
     status=Status.completed,
-    priority=Priority.low
+    priority=Priority.low,
+    id
   }=props
   return (
     <>
@@ -34,9 +35,9 @@ export const Task: FC<ITask> = (props): ReactElement => {
           borderColor:`${RenderPriorityBorderColor(priority)}`,
         }}
       >
-        <TaskHeader title={title} date={date}/>
+        <TaskHeader title={title} date={new Date(date)}/>
         <TaskDescription description={description}/>
-        <TaskFooter onStatusChange={onStatusChange} onClick={onClick}/>
+        <TaskFooter id={id} status={status} onStatusChange={onStatusChange} onClick={onClick}/>
       </Box>
     </>
   );
